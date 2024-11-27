@@ -3,10 +3,9 @@ import multer from 'multer'; // Importa o middleware multer para upload de arqui
 import cors from 'cors'; // Importa o middleware cors
 import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from '../controller/posts_controller.js'; // Importa as funções do controlador de posts
 
-
 const corsOptions = {
-    origin: "http://localhost:8000", // Define o origin como '*' para permitir qualquer origem
-    OptionsSuccessStatus: 200, // Define o status de resposta como 200 (OK)
+    origin: "http://localhost:8000", // Define o origin como "http://localhost:8000"
+    optionsSuccessStatus: 200, // Define o status de resposta como 200 (OK)
 }; // Define as opções para o middleware cors
 
 // Configuração do multer para armazenar os arquivos
