@@ -5,7 +5,7 @@ import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from '..
 
 
 const corsOptions = {
-    origin: '*', // Define o origin como '*' para permitir qualquer origem
+    origin: "http://localhost:8000", // Define o origin como '*' para permitir qualquer origem
     OptionsSuccessStatus: 200, // Define o status de resposta como 200 (OK)
 }; // Define as opções para o middleware cors
 
