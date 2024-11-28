@@ -1,6 +1,13 @@
 import express from 'express'; // Importa o framework express para criar e gerenciar o servidor
 import conectarAoBanco from './src/config/dbConfig.js'; // Importa a função de conexão ao banco de dados
 import routes from './src/routes/posts_routes.js'; // Importa as rotas de posts
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Obter o diretório atual corretamente
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Função assíncrona para estabelecer a conexão com o banco de dados usando uma string de conexão do ambiente
 (async () => {
@@ -10,7 +17,7 @@ import routes from './src/routes/posts_routes.js'; // Importa as rotas de posts
 
         const app = express(); // Cria uma nova instância do express
         app.use(express.json()); // Configura o express para usar JSON no corpo das requisições
-        app.use(express.static("uploads")); // Define a pasta uploads como pasta estática para servir arquivos estáticos
+        app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Define a pasta uploads como pasta estática para servir arquivos estáticos
 
         routes(app); // Usa as rotas definidas em posts_routes.js
 
